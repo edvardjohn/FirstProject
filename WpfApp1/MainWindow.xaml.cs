@@ -27,7 +27,7 @@ namespace WpfApp1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Console.Write("HEJ");
+            ButtonTextBox.Text += "Hej ";
         }
     }
 }
