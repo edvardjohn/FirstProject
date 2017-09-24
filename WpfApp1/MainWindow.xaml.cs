@@ -20,14 +20,31 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public Program _program;
+        public ButtonPresser _buttonPresser;
         public MainWindow()
         {
             InitializeComponent();
+            _program = new Program(this);
+            _buttonPresser = new ButtonPresser();
+
+            _buttonPresser.ButtonPressed += _program.OnButtonPressed;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-           ButtonTextBox.Text += "Hej ";
+            _program.buttonPressed();
+        }
+
+        public void writeInTextBox(string info)
+        {
+            ButtonTextBox.Text += info;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            _buttonPresser.PressingButton();
         }
     }
 }
