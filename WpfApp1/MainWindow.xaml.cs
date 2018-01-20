@@ -37,7 +37,7 @@ namespace WpfApp1
 
             _buttonPresser.ButtonPressed += _program.OnButtonPressed;
 
-            oThread = new Thread(new ThreadStart(_Randomizer.Randoming));
+            //oThread = new Thread(new ThreadStart(_Randomizer.Randoming));
 
         }
 
@@ -58,7 +58,11 @@ namespace WpfApp1
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            oThread = null;
+            oThread = new Thread(_Randomizer.Randoming);
+            oThread.IsBackground = true;
             oThread.Start();
+
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)

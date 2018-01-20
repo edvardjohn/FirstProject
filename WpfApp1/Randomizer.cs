@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -28,10 +29,11 @@ namespace WpfApp1
             Random rnd = new Random();
             int dice = rnd.Next(1, 10);
 
-           
+            int i = 0; 
 
-            while (true)
+            while (i < 10)
             {
+                Thread.Sleep(500);
                 dice = rnd.Next(1, 10);
 
                 if (dice > 5)
@@ -44,7 +46,7 @@ namespace WpfApp1
 
                 }
 
-
+                //i++;
             }
         }
     }
